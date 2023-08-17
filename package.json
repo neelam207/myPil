@@ -7,12 +7,15 @@
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest",
+    "apk:debug": "git pull && mkdir -p android/app/src/main/assets && rm -rf android/app/build && react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res && cd android && ./gradlew clean && ./gradlew assembleDebug && cd app/build/outputs/apk/debug && open . && cd ../../../../ && git clean -df && git checkout .",
+    "apk:release": "git pull && yarn && cd android && ./gradlew clean && ./gradlew assembleRelease && cd app/build/outputs/apk/release && open . && cd../../../../../../"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
     "react": "18.2.0",
-    "react-native": "0.72.4"
+    "react-native": "0.72.4",
+    "react-redux": "^8.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
