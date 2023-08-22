@@ -6,6 +6,9 @@ const App = () => {
   return (
     <Provider store={store}>
       <Home />
+    
+      <AppNavigator>
+      </AppNavigator>
     </Provider>
   );
 }
