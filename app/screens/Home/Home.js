@@ -1,6 +1,6 @@
 import { Text, StyleSheet, View, Button } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
-import { increment,decrement } from "../features/counter/counter";
+import { increment,decrement } from "../../../src/features/counter/counter";
 
 export default function Home() {
   const dispatch = useDispatch();
