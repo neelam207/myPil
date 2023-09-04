@@ -1,6 +1,6 @@
 import { View, Text ,TextInput,TouchableOpacity,StyleSheet} from 'react-native'
 import React,{useState} from 'react'
-import { signInUser } from '../webserviceRequest/signInUser'
+import { signInUser } from '../../webserviceRequest/signInUser'
 import { useNavigation } from '@react-navigation/native'
 
 export default function LoginScreen() {

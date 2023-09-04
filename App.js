@@ -1,15 +1,19 @@
-import Home from './app/screens/Home/Home';
+
 import { Provider } from "react-redux";
 import { store } from "./src/store";
-import Nav from './app/module/navigation'
+import Nav from './app/module/navigation/SwitchNavigators/appSwitchNavigator'
+import NativeBaseExample from './src/screens/NativeBaseExample';
 const App = () => {
   return (
     <Provider store={store}>
-      {/* <Home />
-    
+      {/*    
       <AppNavigator>
-      </AppNavigator> */}
+      </AppNavigator>
+      
+     <NativeBaseExample />
+      */}
       <Nav/>
+    
     </Provider>
   );
 }
