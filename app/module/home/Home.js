@@ -8,7 +8,7 @@ export default function Home() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.subtitle}>Current counter value: {count}</Text>
+      {/* <Text style={styles.subtitle}>Current counter value: {count}</Text>
       <Button
         title="Increment"
         onPress={() => {
@@ -22,8 +22,8 @@ export default function Home() {
           dispatch(decrement());
         }}
       />
-      
-
+       */}
+<Text>Home Screen</Text>
     </View>
   );
 }

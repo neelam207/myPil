@@ -1,68 +1,56 @@
-import { View, Text ,TextInput,TouchableOpacity,StyleSheet} from 'react-native'
-import React,{useState} from 'react'
-import { signInUser } from '../../webserviceRequest/signInUser'
+import React, { useState } from 'react'
+//import { signInUser } from '../../webserviceRequest/signInUser'
 import { useNavigation } from '@react-navigation/native'
-
+import { NativeBaseProvider, Box, Stack, Input, Button, VStack } from "native-base";
+import { useDispatch, useSelector } from "react-redux";
+import { signInUser, signInUserSuccessAction, signInUserErrorAction} from "./loginReducer";
 export default function LoginScreen() {
   const [userName, setuserName] = useState('')
   const [password, setpassword] = useState()
-  const navigation=useNavigation()
-  const signIn = async(userName,password)=>{
+  const dispatch = useDispatch();
+  const navigation = useNavigation()
+  const data = useSelector((state) => state.loginSlice.data)
+  if(data !=null)
+  alert("DATA"+ JSON.stringify(data))
+  
+  const signIn = async  (userName, password) => {
+    const myResp  = dispatch(signInUser({userName,password}))
+   
+    //const resp = await signInUser(userName, password)
+    console.log("neelam----------",myResp)
+    if (data !=null) {
+      navigation.replace('Tab')
 
-   const resp= await signInUser(userName,password)
-    if(resp.status==200){
-     navigation.replace('Tab')
-    
     }
   }
   return (
-    <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
-        <TextInput 
-        style={styles.inputStyle}
-        placeholder='Enter username'
-        onChangeText={(e)=>setuserName(e)}
-        value={userName}
-        />
-        <TextInput 
-        
-        style={styles.inputStyle}
-        placeholder='Enter password'
-        secureTextEntry
-        onChangeText={(e)=>setpassword(e)}
-        value={password}
-        />
-       <View style={{flexDirection:'row'}}>
-       <TouchableOpacity
-       style={styles.buttonStyle}
-       onPress={()=>signIn(userName,password)}
-       >
-            <Text style={{color:'white'}}>Login</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-       style={styles.buttonStyle}
-       >
-            <Text style={{color:'white'}}>Forget Password</Text>
-        </TouchableOpacity>
-        
-       </View>
-    </View>
-  )
-}
 
-const styles = StyleSheet.create({
-   buttonStyle:{
-    backgroundColor:'blue',
-    margin:10,
-    padding:10,
-    borderRadius:12
-   } ,
-   inputStyle:{
-    width:200,
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-    borderRadius:10,
-    margin:5,
-    padding:10
-   }
-})
+    <NativeBaseProvider>
+      <Box flex={1} bg="#fff" alignItems="center" justifyContent="center">
+        <Stack space={4} w="75%" maxW="300px" mx="auto">
+          <Input size="md" placeholder="Enter username"
+            onChangeText={(e) => setuserName(e)}
+            value={userName}
+          />
+          <Input size="md" placeholder="Enter password"
+            onChangeText={(e) => setpassword(e)}
+            value={password}
+          />
+
+        </Stack>
+
+
+        <Stack space={4} paddingTop={5} alignItems="center"
+          direction="row"
+        >
+          <Button
+            // spinnerPlacement="end" isLoadingText="Submitting"
+            onPress={() => signIn(userName, password)}
+          >Log in</Button>
+
+          <Button>New Customer</Button>
+        </Stack>;
+      </Box>
+    </NativeBaseProvider>
+  );
+}
