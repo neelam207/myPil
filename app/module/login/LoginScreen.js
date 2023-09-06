@@ -10,8 +10,8 @@ export default function LoginScreen() {
   const dispatch = useDispatch();
   const navigation = useNavigation()
   const data = useSelector((state) => state.loginSlice.data)
-  if (data != null)
-    alert("DATA"+ JSON.stringify(data))
+  // if (data != null)
+  //   // alert("DATA"+ JSON.stringify(data))
     const signIn = (userName, password) => {
       const myResp = dispatch(signInUser({ userName, password }))
    //const resp = await signInUser(userName, password)
