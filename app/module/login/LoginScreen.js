@@ -3,26 +3,24 @@ import React, { useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { NativeBaseProvider, Box, Stack, Input, Button, VStack } from "native-base";
 import { useDispatch, useSelector } from "react-redux";
-import { signInUser, signInUserSuccessAction, signInUserErrorAction} from "./loginReducer";
+import { signInUser, signInUserSuccessAction, signInUserErrorAction } from "./loginReducer";
 export default function LoginScreen() {
   const [userName, setuserName] = useState('')
   const [password, setpassword] = useState()
   const dispatch = useDispatch();
   const navigation = useNavigation()
   const data = useSelector((state) => state.loginSlice.data)
-  if(data !=null)
-  alert("DATA"+ JSON.stringify(data))
-  
-  const signIn = async  (userName, password) => {
-    const myResp  = dispatch(signInUser({userName,password}))
-   
-    //const resp = await signInUser(userName, password)
-    console.log("neelam----------",myResp)
-    if (data !=null) {
-      navigation.replace('Tab')
+  if (data != null)
+    alert("DATA"+ JSON.stringify(data))
+    const signIn = (userName, password) => {
+      const myResp = dispatch(signInUser({ userName, password }))
+   //const resp = await signInUser(userName, password)
+      console.log("neelam----------", myResp)
+      if (data != null) {
+        navigation.replace('Tab')
 
+      }
     }
-  }
   return (
 
     <NativeBaseProvider>
