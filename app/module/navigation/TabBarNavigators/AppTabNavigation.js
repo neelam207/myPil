@@ -6,10 +6,22 @@ import Shipment from '../../shipment/Shipment';
 import Finance from '../../finance/Finance';
 
 import { useNavigation } from '@react-navigation/native';
+import { useDispatch, useSelector } from "react-redux";
+import { signOut } from '../../login/loginReducer';
+import { useEffect } from 'react';
 const Tab = createBottomTabNavigator();
 
 const AppTabNavigation = () => {
     const navigation = useNavigation();
+    const dispatch = useDispatch();
+    
+  const data = useSelector((state) => state.loginSlice.data)
+    useEffect(()=>{
+        if (data == null) {
+            navigation.replace('Login')
+    
+          }
+    },[data])
     return (
         <Tab.Navigator
         screenOptions={({ route }) => ({
@@ -22,7 +34,7 @@ const AppTabNavigation = () => {
             headerRight: () => (
             
                 <Button
-                  onPress={() => navigation.replace('Login')}
+                  onPress={() => dispatch(signOut()) }
                   title="Logout"
                   
                  

@@ -26,7 +26,7 @@ function* signIn(actions) {
     //    'https://dummy.restapiexample.com/api/v1/employees' )
     
     const response = yield axios.post(
-        'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBDgIx7grCb9_RPIkjXOtcX4TVxgQOPZcM',
+        `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${API_KEY}`,
         {
             "email": actions.payload.userName,
              "password" : actions.payload.password

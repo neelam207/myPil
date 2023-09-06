@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 //import { signInUser } from '../../webserviceRequest/signInUser'
 import { useNavigation } from '@react-navigation/native'
 import { NativeBaseProvider, Box, Stack, Input, Button, VStack } from "native-base";
@@ -10,16 +10,21 @@ export default function LoginScreen() {
   const dispatch = useDispatch();
   const navigation = useNavigation()
   const data = useSelector((state) => state.loginSlice.data)
+  useEffect(
+    ()=>{
+       if (data != null) {
+        navigation.replace('Tab')
+
+      }
+    }
+    ,[data])
   // if (data != null)
   //   // alert("DATA"+ JSON.stringify(data))
     const signIn = (userName, password) => {
       const myResp = dispatch(signInUser({ userName, password }))
    //const resp = await signInUser(userName, password)
-      console.log("neelam----------", myResp)
-      if (data != null) {
-        navigation.replace('Tab')
-
-      }
+      console.log("sneha----------", myResp)
+     
     }
   return (
 

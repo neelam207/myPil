@@ -25,10 +25,13 @@ const loginSlice = createSlice({
         state.isFetching = false,
         state.error = payload
     },
+    signOut:(state)=>{
+        state.data=null
+    }
       
 
   },
 });
 
-export const {signInUser,signInUserErrorAction,signInUserSuccessAction} = loginSlice.actions;
+export const {signInUser,signInUserErrorAction,signInUserSuccessAction,signOut} = loginSlice.actions;
 export default loginSlice.reducer;
