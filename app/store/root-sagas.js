@@ -1,5 +1,5 @@
 import { all, fork } from "redux-saga/effects";
-import { watchsignInUser } from "../app/module/login/saga";
+import { watchsignInUser } from "../module/login/saga";
 
 const rootSaga = function* () {
   yield all([
