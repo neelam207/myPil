@@ -1,7 +1,7 @@
 export const environment = {
     api: {
       name: "dev",
-      base_url: "https://example.com/api/",
+      base_url: "https://identitytoolkit.googleapis.com/v1",
     },
     signUpUrl:
       "https://example.com/signup-",

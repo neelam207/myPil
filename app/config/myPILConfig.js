@@ -1,10 +1,10 @@
 import { environment } from "./environment";
 
-export class AppConfig {
-  api = {
+export const AppConfig ={
+  api : {
     name: environment.api.name,
-    url: environment.api.url,
-  };
-  signUpUrl = environment.signUpUrl;
-  googleMapsApiKey = environment.googleMapsApiKey;
+    base_url: environment.api.base_url,
+  },
+  signUpUrl : environment.signUpUrl,
+  googleMapsApiKey : environment.googleMapsApiKey,
 }
