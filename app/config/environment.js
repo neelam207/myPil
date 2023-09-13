@@ -1,7 +1,7 @@
 export const environment = {
     api: {
       name: "dev",
-      url: "https://example.com/api/",
+      base_url: "https://example.com/api/",
     },
     signUpUrl:
       "https://example.com/signup-",
