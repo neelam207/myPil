@@ -1,6 +1,8 @@
 import { Text, StyleSheet, View, Button } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
-import { increment,decrement } from "../../../src/features/counter/counter";
+import { increment, decrement } from "../../../src/features/counter/counter";
+import ActivityIndicatorComponent from "../../common/CustomActivityIndicator";
+import CheckConnectivity from "../../common/NetworkConnectivity"
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -8,7 +10,7 @@ export default function Home() {
 
   return (
     <View style={styles.container}>
-      {/* <Text style={styles.subtitle}>Current counter value: {count}</Text>
+      <Text style={styles.subtitle}>Current counter value: {count}</Text>
       <Button
         title="Increment"
         onPress={() => {
@@ -22,8 +24,10 @@ export default function Home() {
           dispatch(decrement());
         }}
       />
-       */}
-<Text>Home Screen</Text>
+      
+      <Text>Home Screen</Text>
+      <ActivityIndicatorComponent />
+      <CheckConnectivity />
     </View>
   );
 }

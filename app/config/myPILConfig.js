@@ -6,5 +6,4 @@ export const AppConfig ={
     base_url: environment.api.base_url,
   },
   signUpUrl : environment.signUpUrl,
-  googleMapsApiKey : environment.googleMapsApiKey,
 }

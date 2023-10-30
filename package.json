@@ -12,11 +12,13 @@
     "apk:release": "git pull && yarn && cd android && ./gradlew clean && ./gradlew assembleRelease && cd app/build/outputs/apk/release && open . && cd../../../../../../"
   },
   "dependencies": {
+    "@react-native-community/netinfo": "^9.4.1",
     "@react-navigation/bottom-tabs": "^6.5.8",
     "@react-navigation/native": "^6.1.7",
     "@react-navigation/native-stack": "^6.9.13",
     "@reduxjs/toolkit": "^1.9.5",
     "axios": "^1.4.0",
+    "enzyme": "^3.11.0",
     "native-base": "^3.4.28",
     "react": "18.2.0",
     "react-native": "0.72.4",
